@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+.daylight{
+  background-color: gold;
+}
+.night{
+  background-color: black;
+}
+p{
+  color:red;
+}

@@ -1,26 +1,38 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import InputCity from "./components/InputCity/InputCity";
+import DateTimeButton from "./components/DateTimeButton/DateTimeButton";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            datetime: new Date()
+        }
+    }
+    componentDidMount() {
+        this.timerID = setInterval(
+            () => this.setState({
+                datetime: new Date()
+            }),
+            1000
+        );
+    }
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
+
+    render() {
+        let datetime = this.state.datetime.getHours()
+        return (
+            <div className={(datetime > 7 && datetime < 21) ? 'daylight' : 'night'}>
+                <InputCity/>
+                <DateTimeButton datetime={this.state.datetime}/>
+            </div>
+        );
+    }
 }
 
 export default App;
