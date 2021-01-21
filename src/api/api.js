@@ -10,6 +10,21 @@ const DefaultRoute = 'https://api.openweathermap.org/data/2.5/'
     })
 }*/
 
+/*
+
 export const getWeather = async (city,metric='metric')=>{
      return await axios.get(`${DefaultRoute}weather?q=${city}&units=${metric}&appid=${API_KEY}`)
+}
+
+*/
+
+const instance = axios.create({
+     baseURL:'https://api.openweathermap.org/data/2.5/',
+
+})
+
+export const weatherAPI={
+      getWeatherOfName(city,metric){
+          return axios.get(`${DefaultRoute}weather?q=${city}&units=${metric}&appid=${API_KEY}`)
+     }
 }

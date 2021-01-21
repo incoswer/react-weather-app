@@ -18,7 +18,7 @@ class DateTimeButton extends React.Component {
     render() {
         let time = this.props.datetime.toLocaleTimeString()
         let date = this.props.datetime.toLocaleDateString()
-        return <button onClick={this.changeButtonClick}>
+        return <button  onClick={this.changeButtonClick}>
             {this.state.changeButton ? time : date}
         </button>
     }
