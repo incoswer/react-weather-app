@@ -24,7 +24,10 @@ const instance = axios.create({
 })
 
 export const weatherAPI={
-      getWeatherOfName(city,metric){
-          return axios.get(`${DefaultRoute}weather?q=${city}&units=${metric}&appid=${API_KEY}`)
+      getCurrentWeatherData(city,metric,lang){
+          return axios.get(`${DefaultRoute}weather?q=${city}&units=${metric}&appid=${API_KEY}&lang=${lang}`)
+     },
+     getHourlyForeCast(){
+
      }
 }

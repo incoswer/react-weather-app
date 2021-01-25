@@ -7,7 +7,9 @@ const initialState = {
     recentCity: getCookie('recentCity'),
     isReady: false,
     errorMessage:null,
-    error:false
+    metric: 'metric',
+    error:false,
+
 }
 
 const appReducer = (state = initialState, action) => {
@@ -15,6 +17,7 @@ const appReducer = (state = initialState, action) => {
         case SET_WEATHER_DATA:
             return {
                 ...state,
+
                 ...action.payload,
                 isReady: action.isReady
             }
@@ -42,13 +45,15 @@ export const errorData=(error)=>({
 })
 
 export const getWeather = (nameCity, metric = 'metric') => async dispatch => {
-    let data = await weatherAPI.getWeatherOfName(nameCity, metric).then(res => res.data)
+    let lang = /[a-zA-Z]/.test(nameCity) ? 'en' : 'ru'
+    let data = await weatherAPI.getCurrentWeatherData(nameCity, metric,lang).then(res => res.data)
     if (data.cod === 200) {
         dispatch(setCityData(data))
     }else{
         dispatch(errorData(data.message))
     }
 }
+
 
 
 export default appReducer
