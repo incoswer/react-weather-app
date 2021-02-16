@@ -1,3 +1,5 @@
+// this is need to fix
+
 import ru from '../icons/countries/ru.svg'
 import china from '../icons/countries/china.svg'
 import usa from '../icons/countries/united-states-of-america.svg'

@@ -20,8 +20,13 @@ const PopularCities = (props) => {
     }
     return (
         <Box >
-            {cities.cities.map(el=>
-                <Button disabled={city===el.name} key={el.id} onClick={(e)=>handleClick(el.name)} size={'large'}>{el.name}</Button>)}
+            {cities.cities.map((el)=>(
+                <Button
+                    disabled={city===el.name}
+                    key={el.id}
+                    onClick={(e)=>handleClick(el.name)}
+                    size={'large'}>
+                    {el.name}</Button>))}
         </Box>
     )
 }

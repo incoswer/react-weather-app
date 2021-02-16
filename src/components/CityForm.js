@@ -30,9 +30,11 @@ function CityForm(props) {
                     variant="outlined"
                 />
                 <FormControlLabel
-                    control={<Checkbox
+                    control={
+                        <Checkbox
                         checked={celsius}
                         icon={<ReactSVG src={kelvinSvg}/>}
+                        title={'Click to change metric'}
                         checkedIcon={<ReactSVG src={celsiusSvg}/>}
                         onChange={(e) => setMetric(e.target.checked)}
                     />}
